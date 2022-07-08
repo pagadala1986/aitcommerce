@@ -35,7 +35,7 @@ class PopularProducts extends Component {
                                             <div class="card-body">
                                                 <h4 class="card-title truncate">{item.title}</h4>
                                                 <p class="card-text truncate">{item.description}</p>
-                                                <a href="#" class="btn btn-primary">View More</a>
+                                                <a href="#" class="btn btn-primary">Know More</a>
                                             </div>
                                         </div>
                                     </div>
