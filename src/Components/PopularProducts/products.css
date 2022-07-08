@@ -1,0 +1,9 @@
+.truncate{
+    width:200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.h200{
+    height: 200px;
+}
