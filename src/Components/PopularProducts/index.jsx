@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import "./products.css"
+import axios from 'axios';
+import { Link } from "react-router-dom";
+import { isContentEditable } from '@testing-library/user-event/dist/utils';
 
 class PopularProducts extends Component {
     constructor() {
@@ -10,14 +13,20 @@ class PopularProducts extends Component {
         }
     }
     componentDidMount(){
-        fetch('https://fakestoreapi.com/products')
-            .then(res=>res.json())
-            .then((json)=>{
-                this.setState({products: json})
-            })
-            .catch((error)=>{
-                console.log(error);
-            })
+        // fetch('https://fakestoreapi.com/products')
+        //     .then(res=>res.json())
+        //     .then((json)=>{
+        //         this.setState({products: json})
+        //     })
+        //     .catch((error)=>{
+        //         console.log(error);
+        //     })
+
+        axios.get(`https://fakestoreapi.com/products`)
+        .then(res => {
+            console.log(res);
+            this.setState({products: res.data});
+        })
     }
     render() {
         return (
@@ -30,12 +39,14 @@ class PopularProducts extends Component {
                             this.state.products.map((item) => {
                                 return (
                                     <div className='col-md-3 p-4' key={item.id}>
-                                        <div class="card p-3">
-                                            <img class="card-img-top w-100 h200" src={item.image} alt="Card image" />
-                                            <div class="card-body">
-                                                <h4 class="card-title truncate">{item.title}</h4>
-                                                <p class="card-text truncate">{item.description}</p>
-                                                <a href="#" class="btn btn-primary">Know More</a>
+                                        <div className="card p-3">
+                                            <img className="card-img-top w-100 h200" src={item.image} alt="Card image" />
+                                            <div className="card-body">
+                                                <h4 className="card-title truncate">{item.title}</h4>
+                                                <p className="card-text truncate">{item.description}</p>
+                                                <Link to={`know-more-product/${item.id}`} className='btn btn-secondary'>View More</Link>
+                                                <Link to="edit-product" className="btn btn-primary me-4">Edit</Link>
+                                                <a href="#" className="btn btn-danger">Delete</a>
                                             </div>
                                         </div>
                                     </div>
