@@ -1,9 +1,14 @@
-import "./header.css"
+import "./header.css";
+import styles from "./header.module.css";
 import { Link } from "react-router-dom";
 let Header = () => {
 
+    const textRed = {
+        color:"red"
+    }
+
     return (
-        <header className="container-fluid header bg-dark">
+        <header className={styles.header+" container-fluid bg-dark"}>
             <div>
             <Link to="/" className="text-light">
                 <img src="https://www.achieversit.com/assets/images/logo-white.png" alt="logo"/>
@@ -12,10 +17,10 @@ let Header = () => {
             <nav>
                 <ul className="row mt-4">
                     <li className="col-md-2">
-                        <Link to="/" className="text-light">Home</Link>
+                        <Link to="/"  style={textRed}>Home</Link>
                     </li>
                     <li className="col-md-2">
-                        <a className="text-light">About</a>
+                        <Link to="about" className="text-light">About</Link>
                     </li>
                     <li className="col-md-2">
                         <a className="text-light">Products</a>
@@ -27,7 +32,7 @@ let Header = () => {
                         <a className="text-light">Offers</a>
                     </li>
                     <li className="col-md-2">
-                        <a className="text-light">Contact</a>
+                        <Link to="contact-us" className="text-light">Contact</Link>
                     </li>
                 </ul>
             </nav>

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import "./products.css"
 import axios from 'axios';
 import { Link } from "react-router-dom";
-import { isContentEditable } from '@testing-library/user-event/dist/utils';
 
 class PopularProducts extends Component {
+    intervalID = 0;
     constructor() {
         super();
         this.state = {
@@ -12,6 +12,10 @@ class PopularProducts extends Component {
             products: []
         }
     }
+    welcome = () => {        
+        console.log(`Welcome to ReactJs Training!`);
+    }
+
     componentDidMount(){
         // fetch('https://fakestoreapi.com/products')
         //     .then(res=>res.json())
@@ -26,12 +30,18 @@ class PopularProducts extends Component {
         .then(res => {
             console.log(res);
             this.setState({products: res.data});
-        })
+            //this.state.products = res.data;
+        });
+
+        // implementing setInterval method
+        this.intervalID = setInterval(() => this.welcome(), 1000);
+    }
+    componentWillUnmount(){
+        clearInterval(this.intervalID);
     }
     render() {
-        return (
-            <>                
-                <section className='container'>
+        return (             
+            <section className='container'>
                 <h1 className='bg-danger mt-2 text-light p-3'>{this.state.heading}</h1>
                     <div className='row'>
                         {
@@ -63,7 +73,6 @@ class PopularProducts extends Component {
 
                     </div>
                 </section>
-            </>
         )
     }
 }
