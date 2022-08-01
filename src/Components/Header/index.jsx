@@ -34,6 +34,9 @@ let Header = () => {
                     <li className="col-md-2">
                         <Link to="contact-us" className="text-light">Contact</Link>
                     </li>
+                    <li className="col-md-2">
+                        <Link to="register" className="text-light">Register</Link>
+                    </li>
                 </ul>
             </nav>
         </header>
