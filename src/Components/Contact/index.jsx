@@ -43,11 +43,11 @@ const Contact = () =>{
         
 
     }
-    // const handleErrorMessage = (name) =>{
-    //     name === errorMessages.name && (
-    //         <div className='error'>{errorMessages.message}</div>
-    //     )
-    // }
+    const handleErrorMessage = (name) =>{
+        name === errorMessages.name && (
+            <div className='error'>{errorMessages.message}</div>
+        )
+    }
     return(
         <section className='container'>
                 <div className='row'>
@@ -59,13 +59,13 @@ const Contact = () =>{
                                 <Form.Text className="text-muted">
                                     We'll never share your email with anyone else.
                                 </Form.Text><br/>
-                                <div className='text-danger'>{errorMessages.message}</div>
+                                {handleErrorMessage('uname')}
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password" name="pass" placeholder="Password" />
-                                {/* <div className='text-danger'>{errorMessages.message}</div> */}
+                                {handleErrorMessage('pass')}
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                 <Form.Check type="checkbox" label="Check me out" />

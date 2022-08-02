@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux/es/exports";
 
 const About = (props) => {
 
@@ -8,6 +9,10 @@ const About = (props) => {
     // const [trainer, setTrainer] = useState("Murali");
     const [heading,setHeading] = useState("Popular Products")
     const [products, setProducts] = useState([]);
+
+    // loading store data into about component
+    const cartProducts = useSelector(state=>state.products);
+    console.log(cartProducts);
     useEffect(() => {
         axios.get(`https://fakestoreapi.com/products`)
             .then(res => {
@@ -15,7 +20,7 @@ const About = (props) => {
                 setProducts(res.data)
             });
         return()=>{
-            console.log('Side effects are going to be cleanedup here');
+            //console.log('Side effects are going to be cleanedup here');
         }
     }, [products])
     return (
