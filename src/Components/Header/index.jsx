@@ -16,19 +16,20 @@ let Header = () => {
             </div>
             <nav>
                 <ul className="row mt-4">
-                    <li className="col-md-2">
+                    <li className="col-md-1">
                         <Link to="/"  style={textRed}>Home</Link>
                     </li>
-                    <li className="col-md-2">
+                    <li className="col-md-1">
                         <Link to="about" className="text-light">About</Link>
                     </li>
                     <li className="col-md-2">
-                        <a className="text-light">Products</a>
+                        {/* <a className="text-light">Products</a> */}
+                        <Link to="products" className="text-light">Products</Link>
                     </li>
-                    <li className="col-md-2">
+                    <li className="col-md-1">
                         <a className="text-light">Blog</a>
                     </li>
-                    <li className="col-md-2">
+                    <li className="col-md-1">
                         <a className="text-light">Offers</a>
                     </li>
                     <li className="col-md-2">
@@ -37,6 +38,10 @@ let Header = () => {
                     <li className="col-md-2">
                         <Link to="register" className="text-light">Register</Link>
                     </li>
+                    <li className="col-md-2">
+                        <Link to="cart" className="text-light">My Cart</Link>
+                    </li>
+                    
                 </ul>
             </nav>
         </header>

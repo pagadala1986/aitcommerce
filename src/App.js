@@ -12,6 +12,8 @@ import KnowMoreProduct from './Components/PopularProducts/KnowMoreProduct';
 import Contact from './Components/Contact';
 import About from './Components/About';
 import Register from './Components/Register';
+import ProductList from './Components/Product/ProductList';
+import Cart from './Components/cart/Cart';
 
 function App() {
   const tle = "Edit Product";
@@ -27,6 +29,9 @@ function App() {
         <Route path="about" element={<About />}/>
         <Route path='contact-us' element={<Contact />}/>
         <Route path='register' element={<Register />}/>
+        <Route path='products' element={<ProductList />}/>
+        <Route path='cart' element={<Cart />}/>
+      
         <Route path='*' element={<PageNotFound />}/>
       </Routes>
       <Footer />

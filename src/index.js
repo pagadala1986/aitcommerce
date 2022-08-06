@@ -9,18 +9,11 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js";
 import { Provider } from 'react-redux';
 
 import { createStore } from 'redux';
+import rootReducer from './store/reducers/rootReducer';
 
 // store
 
-const store = createStore(()=>({
-  products:[
-    {
-      name:'MacBook',
-      price:320000,
-      qty:2
-    }
-  ]
-}));
+const store = createStore(rootReducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

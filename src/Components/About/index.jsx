@@ -11,8 +11,8 @@ const About = (props) => {
     const [products, setProducts] = useState([]);
 
     // loading store data into about component
-    const cartProducts = useSelector(state=>state.products);
-    console.log(cartProducts);
+    // const cartProducts = useSelector(state=>state.products);
+    // console.log(cartProducts);
     useEffect(() => {
         axios.get(`https://fakestoreapi.com/products`)
             .then(res => {
